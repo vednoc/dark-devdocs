@@ -108,4 +108,29 @@
             }
         }
     }
+
+    // * Sidebar -> Core.
+    ._sidebar[tabindex='-1'] {
+        c: $lighter $green $dark;
+
+        ._list {
+            box-shadow: inset -1px 0 $darker;
+
+            &-item {
+                c: 0 0 $t;
+                &:hover { c : 0 0 $darker }
+
+                ../ .focus, ../ .active {
+                    c: $light 0 $darker;
+                    box-shadow: inset -1px 0 $accent;
+                }
+
+                ._list-arrow {
+                    fill: $light;
+                    ../.open ._list-arrow { opacity: 1 }
+                }
+            }
+        }
+    }
+
 }
