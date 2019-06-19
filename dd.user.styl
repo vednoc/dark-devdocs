@@ -9,6 +9,9 @@
 @updateURL    https://gitlab.com/vednoc/dark-devdocs/raw/master/dd.user.styl
 @preprocessor stylus
 
+@var text ui_font "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif"
+@var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
+
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
 @var color light   "Light color.  " #d1d1d1
@@ -47,6 +50,9 @@
         --green   : green;
         --white   : white;
         --t       : transparent;
+
+        --ui-font   : ui_font;
+        --mono-font : mono_font;
     }
 
     // * Use stylus-lang variables with CSS variables.
@@ -79,6 +85,9 @@
     body {
         c: $lighter 0 $dark;
 
+        // * Feature -> Custom UI font.
+        font-family: var(--ui-font);
+
         table {
             c: 0 $darker $dark;
             thead {
@@ -97,6 +106,10 @@
         }
 
         pre {
+
+            // * Feature -> Custom Mono font.
+            &, ../ code, samp { font-family: mono_font }
+
             &[data-language] {
                 .comment, .punctuation { c: $lighter }
                 .function { c: $red }
