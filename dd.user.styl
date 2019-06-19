@@ -1,0 +1,78 @@
+/* ==UserStyle==
+@name         Dark DevDocs
+@description  A customizable theme for DevDocs.
+@namespace    github.com/vednoc/dark-devdocs
+@author       vednoc
+@version      0.1.0
+@homepageURL  https://github.com/vednoc/dark-devdocs
+@supportURL   https://github.com/vednoc/dark-devdocs/issues
+@updateURL    https://gitlab.com/vednoc/dark-devdocs/raw/master/dd.user.styl
+@preprocessor stylus
+
+@var color dark    "Dark color.   " #222222
+@var color darker  "Darker color. " #2f2f2f
+@var color light   "Light color.  " #d1d1d1
+@var color lighter "Lighter color." #c9c9c9
+@var color icon    "Icon color.   " #e1e1e1
+@var color accent  "Accent color. " #7289da
+@var color yellow  "Yellow color. " #f0c674
+@var color orange  "Orange color. " #de935f
+@var color red     "Red color.    " #a54242
+@var color magenta "Magenta color." #b294bb
+@var color violet  "Violet color. " #85678f
+@var color blue    "Blue color.   " #5f819d
+@var color cyan    "Cyan color.   " #5e8d87
+@var color green   "Green color.  " #8c9440
+@var color white   "White color.  " #ffffff
+@var color shadow  "Shadow color. " #00000020
+
+==/UserStyle== */
+
+@-moz-document domain('devdocs.io') {
+
+    :root {
+        --dark    : dark;
+        --darker  : darker;
+        --light   : light;
+        --lighter : lighter;
+        --accent  : accent;
+        --shadow  : shadow;
+        --yellow  : yellow;
+        --orange  : orange;
+        --red     : red;
+        --magenta : magenta;
+        --violet  : violet;
+        --blue    : blue;
+        --cyan    : cyan;
+        --green   : green;
+        --white   : white;
+        --t       : transparent;
+    }
+
+    // * Use stylus-lang variables with CSS variables.
+    $dark    = var(--dark);
+    $darker  = var(--darker);
+    $light   = var(--light);
+    $lighter = var(--lighter);
+    $accent  = var(--accent);
+    $shadow  = var(--shadow);
+    $yellow  = var(--yellow);
+    $orange  = var(--orange);
+    $red     = var(--red);
+    $magenta = var(--magenta);
+    $violet  = var(--violet);
+    $blue    = var(--blue);
+    $cyan    = var(--cyan);
+    $green   = var(--green);
+    $white   = var(--white);
+    $t       = var(--t);
+
+    // * Mixins.
+    radius() { border-radius: arguments }
+    c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+        if x is a 'call' {            color: xi is 0 ? x : x !important }
+        if y is a 'call' {     border-color: yi is 0 ? y : y !important }
+        if z is a 'call' { background-color: zi is 0 ? z : z !important }
+    }
+
+}
