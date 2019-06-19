@@ -9,6 +9,7 @@
 @updateURL    https://gitlab.com/vednoc/dark-devdocs/raw/master/dd.user.styl
 @preprocessor stylus
 
+@var text b_radius "Custom border radius" 4px
 @var text ui_font "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif"
 @var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
 
@@ -51,6 +52,7 @@
         --white   : white;
         --t       : transparent;
 
+        --radius    : b_radius;
         --ui-font   : ui_font;
         --mono-font : mono_font;
     }
@@ -72,6 +74,7 @@
     $green   = var(--green);
     $white   = var(--white);
     $t       = var(--t);
+    $r       = var(--radius);
 
     // * Mixins.
     radius() { border-radius: arguments }
