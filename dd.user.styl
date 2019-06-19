@@ -12,6 +12,7 @@
 @var text b_radius "Custom border radius" 4px
 @var text ui_font "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif"
 @var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
+@var text mono_size "Custom Mono font size" 0.9em
 
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
@@ -55,6 +56,7 @@
         --radius    : b_radius;
         --ui-font   : ui_font;
         --mono-font : mono_font;
+        --mono-size : mono_size;
     }
 
     // * Use stylus-lang variables with CSS variables.
@@ -115,6 +117,9 @@
 
             // * Feature -> Custom Mono font.
             &, ../ code, samp { font-family: var(--mono-font) }
+
+            // * Feature -> Custom font size.
+            &, ../ code, samp { font-size: var(--mono-size) }
 
             &[data-language] {
                 .comment, .punctuation { c: $lighter }
