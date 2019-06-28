@@ -187,6 +187,15 @@
     }
 
 
+    // * Main -> Content.
+    ._container[role='document'] ._page {
+        h1 {
+            code { c: $light }
+            &::after { c: 0 0 $darker }
+        }
+    }
+
+
     // * Main -> Core.
     ._app[role='application'] {
 
