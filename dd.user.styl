@@ -130,6 +130,16 @@
                 .property, .tag, .boolean, .constant, .symbol, .deleted { c: $orange }
                 .selector, .attr-name, .string, .char, .builtin, .inserted { c: $green }
             }
+
+            // Clipboard button.
+            ._pre-clip {
+                opacity: 0;
+                display: block;
+                transition: 0.15s ease;
+                &::before { c: $light }
+                > svg { fill: $light }
+                ../:hover ._pre-clip { opacity: 0.5 }
+            }
         }
     }
 
