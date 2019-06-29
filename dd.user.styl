@@ -59,6 +59,8 @@
         --ui-font   : ui_font;
         --mono-font : mono_font;
         --mono-size : mono_size;
+
+        scrollbar-color : var(--darker) var(--dark);
     }
 
     // * Use stylus-lang variables with CSS variables.
@@ -80,6 +82,7 @@
     $t       = var(--t);
     $r       = var(--radius);
 
+
     // * Mixins.
     radius() { border-radius: arguments }
     c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
@@ -87,6 +90,7 @@
         if y is a 'call' {     border-color: yi is 0 ? y : y !important }
         if z is a 'call' { background-color: zi is 0 ? z : z !important }
     }
+
 
     // * Reset.
     body {
@@ -175,6 +179,7 @@
             iframe { filter: invert(1) hue-rotate(180deg) }
         }
     }
+
 
     // * Sidebar -> Search.
     ._header[role='banner'] {
