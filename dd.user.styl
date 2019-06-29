@@ -13,6 +13,7 @@
 @var text ui_font "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif"
 @var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
 @var text mono_size "Custom Mono font size" 0.9em
+@var text max_width "Max width for content" 100%
 
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
@@ -53,6 +54,7 @@
         --white   : white;
         --t       : transparent;
 
+        --width     : max_width;
         --radius    : b_radius;
         --ui-font   : ui_font;
         --mono-font : mono_font;
@@ -206,6 +208,12 @@
 
     // * Main -> Content.
     ._container[role='document'] {
+        // * Feature -> Max width for content.
+        > main._content > div {
+            margin: 0 auto;
+            max-width: var(--width);
+        }
+
         h1 {
             code { c: $light }
             &::after { c: 0 0 $darker }
