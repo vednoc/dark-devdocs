@@ -147,6 +147,17 @@
             c: $light 0 $darker;
             box-shadow: none;
         }
+
+        // Main -> Landing page.
+        ._intro {
+            &-message {
+                radius: $r;
+                c: $light $darker $dark;
+                box-shadow: 0 2px 4px 0 $shadow;
+                a[href] { c: $accent }
+            }
+            iframe { filter: invert(1) hue-rotate(180deg) }
+        }
     }
 
     // * Sidebar -> Search.
