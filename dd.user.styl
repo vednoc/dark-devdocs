@@ -96,15 +96,28 @@
         font-family: var(--ui-font);
 
         table {
+            radius: $r !important;
             c: 0 $darker $dark;
             thead {
                 tr th {
                     c: $light $darker $darker;
+                    ../ tr:first-child > th:first-child {
+                        radius: calc(var(--radius) - 2px) 0 0 0;
+                    }
+                    ../ tr:first-child > th:last-child {
+                        radius: 0 calc(var(--radius) - 2px) 0 0;
+                    }
                 }
             }
             tbody {
                 tr th {
                     c: $light $darker $darker;
+                    ../ tr:first-child > th:first-child {
+                        radius: calc(var(--radius) - 2px) 0 0 0;
+                    }
+                    ../ tr:first-child > th:last-child {
+                        radius: 0 calc(var(--radius) - 2px) 0 0;
+                    }
                 }
                 tr td { c: $lighter $darker $t }
                 code { c: $light 0 $darker }
