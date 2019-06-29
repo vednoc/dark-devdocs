@@ -12,7 +12,7 @@
 @var text b_radius "Custom border radius" 4px
 @var text ui_font "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif"
 @var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
-@var text mono_size "Custom Mono font size" 0.9em
+@var text mono_size "Custom Mono font size" 1em
 @var text max_width "Max width for content" 100%
 
 @var color dark    "Dark color.   " #222222
@@ -124,6 +124,7 @@
             &, ../ code, samp { font-size: var(--mono-size) }
 
             &[data-language] {
+                font-size: var(--mono-size);
                 .comment, .punctuation { c: $lighter }
                 .function { c: $red }
                 .number { c: $violet }
