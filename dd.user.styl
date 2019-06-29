@@ -214,6 +214,28 @@
             max-width: var(--width);
         }
 
+        // Links.
+        a {
+            &[href] {
+                c: $accent 0 0 0;
+                code {
+                    &.inline { color: inherit !important }
+                    // Reset code within links.
+                    ../ > code {
+                        font-size: 1em;
+                        font-family: var(--ui-font);
+                    }
+                }
+            }
+        }
+
+        p {
+            // Page links.
+            &._links {
+                ._links-link { c: $accent 0 $dark }
+            }
+        }
+
         h1 {
             code { c: $light }
             &::after { c: 0 0 $darker }
