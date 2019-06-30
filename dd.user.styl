@@ -204,11 +204,21 @@
     ._sidebar[tabindex='-1'] {
         c: $lighter $green $dark;
 
+        a { c: $accent }
+
         ._list {
             box-shadow: inset -1px 0 $darker;
 
+            &-title {
+                c: $lighter;
+                svg { fill: $lighter }
+                &.open-title { c: $light }
+                + ._disabled-list ._list-item:not(:hover) { opacity: 0.8 }
+            }
+
             &-item {
-                c: 0 0 $t;
+                c: $lighter 0 $t;
+                transition: 0.15s ease;
                 box-shadow: inset -1px 0 $darker;
                 &:hover { c : 0 0 $darker }
 
@@ -222,6 +232,8 @@
                     ../.open ._list-arrow { opacity: 1 }
                 }
             }
+
+            &-pagelink { c: $accent }
         }
     }
 
