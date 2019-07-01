@@ -213,23 +213,30 @@
                 c: $lighter;
                 svg { fill: $lighter }
                 &.open-title { c: $light }
-                + ._disabled-list ._list-item:not(:hover) { opacity: 0.8 }
             }
 
             &-item {
-                c: $lighter 0 $t;
-                transition: 0.15s ease;
+                c: $light 0 $t;
                 box-shadow: inset -1px 0 $darker;
                 &:hover { c : 0 0 $darker }
 
                 ../ .focus, ../ .active {
-                    c: $light 0 $darker;
+                    c: $accent 0 $darker;
                     box-shadow: inset -1px 0 $darker;
                 }
 
                 ._list-arrow {
                     fill: $light;
                     ../.open ._list-arrow { opacity: 1 }
+                }
+
+                // Version colors.
+                ._list-count { color: inherit }
+
+                // Disabled list items.
+                &._list-disabled {
+                    c: $lighter;
+                    ^[1]-enable { c: $accent }
                 }
             }
 
