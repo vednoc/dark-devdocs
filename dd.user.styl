@@ -178,6 +178,9 @@
             }
             iframe { filter: invert(1) hue-rotate(180deg) }
         }
+
+        // Settings -> Header.
+        ._settings ._header { c: $light $darker $dark }
     }
 
 
@@ -255,6 +258,13 @@
                     ^[1]-enable { c: $accent }
                 }
             }
+
+            &-picker-head {
+                background: linear-gradient(0deg, $t, $dark 75%) !important;
+                span { c: $light }
+            }
+
+            &-note { c: $lighter }
 
             &-pagelink { c: $accent }
         }
