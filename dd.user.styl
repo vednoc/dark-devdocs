@@ -14,6 +14,7 @@
 @var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
 @var text mono_size "Custom Mono font size" 1em
 @var text max_width "Max width for content" 100%
+@var checkbox invert_ic "Icons: Invert language logos" 1
 
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
@@ -181,6 +182,13 @@
 
         // Settings -> Header.
         ._settings ._header { c: $light $darker $dark }
+
+        // Feature -> Invert icon colors.
+        if ( invert_ic == 1 ) {
+            ._list-item::before, ._docs-name::before, ._path-item::before {
+                filter: invert(1) grayscale(100%) !important;
+            }
+        }
     }
 
 
