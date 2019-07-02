@@ -191,6 +191,13 @@
         // Settings -> Header.
         ._settings ._header { c: $light $darker $dark }
 
+        // Button groups.
+        ._docs-links {
+            radius: $r;
+            c: $light $darker $dark;
+            ._show ~ ._show { c: 0 $darker 0 }
+        }
+
         // Feature -> Invert icon colors.
         if ( invert_ic == 1 ) {
             ._list-item::before, ._docs-name::before, ._path-item::before {
@@ -204,7 +211,9 @@
     ._btn {
         transition: 0.15s ease;
         c: $light $darker $dark 0 0 0;
+
         &:hover { c: 0 0 $darker 0 0 0 }
+
         &-link {
             c: $light;
             &._reset-btn { c: $red }
