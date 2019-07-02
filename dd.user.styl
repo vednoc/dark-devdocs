@@ -356,12 +356,19 @@
             code { c: $light }
             &::after { c: 0 0 $darker }
         }
+        // Class-less headers.
+        for i in 2..6 {
+            h{i}:not([class]) {
+                radius: $r;
+                c: $light $darker $darker;
+            }
+        }
 
         * {
             // Reset headings.
             &[class*='impl'] {
                 radius: $r;
-                c: $light $darker $dark;
+                c: $light $blue $dark;
                 code { c: 0 0 $t }
             }
             &[class*='section-head'] {
@@ -379,11 +386,12 @@
                 radius: $r;
                 c: $blue $blue $darker;
             }
-            .method {
+            .type, .method {
                 radius: $r;
                 c: $light $darker $dark;
                 code { c: 0 0 $t }
             }
+            .unstable { c: $white $orange $orange }
             // Reset code blocks.
             > code {
                 padding: 2px 4px;
