@@ -362,6 +362,18 @@
                 radius: $r;
                 c: $blue $blue $darker;
             }
+            // Reset code blocks.
+            &:not(span) > code {
+                padding: 2px 4px;
+                radius: $r;
+                c: $light 0 $darker;
+            }
+        }
+
+
+        blockquote, .important-traits {
+            radius: $r;
+            c: $light $orange $darker;
         }
 
         ._toc {
