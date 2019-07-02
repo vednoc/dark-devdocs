@@ -83,7 +83,6 @@
     $t       = var(--t);
     $r       = var(--radius);
 
-
     // * Mixins.
     radius() { border-radius: arguments }
     c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
@@ -128,6 +127,11 @@
                 code { c: $light 0 $darker }
                 a { c: $accent }
             }
+        }
+
+        small { c: $lighter }
+        code {
+            &._label { c: $light 0 $darker }
         }
 
         pre {
@@ -332,11 +336,27 @@
             &._links {
                 ._links-link { c: $accent 0 $dark }
             }
+            > code { c: $light 0 $darker }
         }
 
         h1 {
             code { c: $light }
             &::after { c: 0 0 $darker }
+        }
+
+        ._toc {
+            radius: $r;
+            c: $light $darker $dark;
+        }
+
+        ._shortcut {
+            &-code { c: $light 0 $darker }
+        }
+
+        ._note {
+            radius: $r;
+            ._label { c: $light 0 $dark }
+            &-green { c: $green $green $darker }
         }
     }
 
