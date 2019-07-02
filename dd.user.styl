@@ -184,6 +184,18 @@
     }
 
 
+    // * Global -> Buttons.
+    ._btn {
+        transition: 0.15s ease;
+        c: $light $darker $dark 0 0 0;
+        &:hover { c: 0 0 $darker 0 0 0 }
+        &-link {
+            c: $light;
+            &._reset-btn { c: $red }
+        }
+    }
+
+
     // * Sidebar -> Search.
     ._header[role='banner'] {
         c: 0 $darker $dark;
