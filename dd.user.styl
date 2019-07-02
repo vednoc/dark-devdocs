@@ -198,6 +198,22 @@
                 }
             }
         }
+
+        // Menu.
+        ._menu {
+            radius: $r;
+            c: 0 $darker $dark;
+            box-shadow: 0 2px 4px $shadow;
+            h1 {
+                c: $light $darker $t;
+                a { c: $light }
+            }
+            &-link {
+                c: $lighter;
+                transition: 0.15s ease;
+                &:hover { c: $light 0 $darker }
+            }
+        }
     }
 
     // * Sidebar -> Core.
