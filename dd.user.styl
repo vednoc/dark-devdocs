@@ -344,6 +344,26 @@
             &::after { c: 0 0 $darker }
         }
 
+        * {
+            // Reset headings.
+            &[class*='impl'] {}
+            &[class*='section-head'] {
+                &, ~ h2:not([class]) {
+                    radius: $r;
+                    c: $light $darker $darker;
+                }
+            }
+            &[class*='block-heading'] {
+                radius: $r;
+                c: $light $darker $dark;
+            }
+            &[class*='detail-header'] {
+                // padding: 8px;
+                radius: $r;
+                c: $blue $blue $darker;
+            }
+        }
+
         ._toc {
             radius: $r;
             c: $light $darker $dark;
