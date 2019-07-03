@@ -394,9 +394,9 @@
             .unstable { c: $white $orange $orange }
             // Reset code blocks.
             > code {
-                padding: 2px 4px;
                 radius: $r;
                 c: $light 0 $darker;
+                &:not(._shortcut-code) { padding: 2px 4px }
             }
         }
 
@@ -417,6 +417,7 @@
 
         ._note {
             radius: $r;
+            &:not([id]) { c: $light $orange $dark }
             ._label { c: $light 0 $dark }
             &-green { c: $green $green $darker }
         }
