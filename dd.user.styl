@@ -15,6 +15,7 @@
 @var text mono_size "Custom Mono font size" 1em
 @var text max_width "Max width for content" 100%
 @var checkbox invert_ic "Icons: Invert language logos" 1
+@var text fade_img "Media: Set default opacity" 1
 
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
@@ -60,6 +61,8 @@
         --ui-font   : ui_font;
         --mono-font : mono_font;
         --mono-size : mono_size;
+
+        --media-opacity: fade_img;
 
         scrollbar-color : var(--darker) var(--dark);
     }
@@ -432,6 +435,14 @@
             &:not([id]) { c: $light $orange $dark }
             ._label { c: $light 0 $dark }
             &-green { c: $green $green $darker }
+        }
+
+        // * Feature -> Set default media opacity.
+        > [role='main'] {
+            img, video, iframe {
+                transition: 0.15s ease;
+                &:not(:hover) { filter: opacity(var(--media-opacity)) }
+            }
         }
     }
 
