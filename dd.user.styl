@@ -386,7 +386,7 @@
                 radius: $r;
                 c: $light $darker $dark;
             }
-            &[class*='detail-header'] {
+            &[class*='detail-header'], &[class=''] {
                 // padding: 8px;
                 radius: $r;
                 c: $blue $blue $darker;
@@ -406,9 +406,16 @@
         }
 
 
-        blockquote, .important-traits {
+        blockquote, .important-traits, .tip {
             radius: $r;
             c: $light $orange $darker;
+        }
+
+        // Callouts.
+        .doc-box {
+            radius: $r;
+            &.doc-info { c: $light $blue $dark }
+            &.doc-notice { c: $light $yellow $dark }
         }
 
         ._toc {
