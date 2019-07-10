@@ -366,10 +366,15 @@
             &::after { c: 0 0 $darker }
         }
         // Class-less headers.
-        for i in 2..6 {
+        for i in 2..3 {
             h{i}:not([class]) {
                 radius: $r;
                 c: $light $darker $darker;
+            }
+        }
+        for i in 4..6 {
+            h{i}:not([class]) {
+                c: $light 0 0;
             }
         }
 
