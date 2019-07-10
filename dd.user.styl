@@ -154,13 +154,14 @@
 
             &[data-language] {
                 font-size: var(--mono-size);
-                .comment, .punctuation { c: $lighter }
+                .token, .comment, .punctuation { c: $lighter }
                 .function { c: $red }
                 .number { c: $violet }
                 .operator, .entity, .url { c: $yellow }
                 .atrule, .attr-value, .keyword { c: $blue }
                 .property, .tag, .boolean, .constant, .symbol, .deleted { c: $orange }
                 .selector, .attr-name, .string, .char, .builtin, .inserted { c: $green }
+                .symbol.atom { c: $violet }
             }
 
             // Clipboard button.
