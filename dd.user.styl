@@ -285,10 +285,9 @@
                 box-shadow: inset -1px 0 $darker;
                 &:hover { c : 0 0 $darker }
 
-                ../ .focus, ../ .active {
-                    c: $accent 0 $darker;
-                    box-shadow: inset -1px 0 $darker;
-                }
+                // List states.
+                ../ .focus { c: $light 0 $darker }
+                ../ .active { c: $white 0 $accent }
 
                 ._list-arrow {
                     fill: $light;
