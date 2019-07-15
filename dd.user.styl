@@ -391,7 +391,7 @@
                 c: $light $blue $dark;
                 code { c: 0 0 $t }
             }
-            &[class*='section-head'] {
+            &[class*='section-head']:not(h1):not(h4) {
                 &, ~ h2:not([class]) {
                     radius: $r;
                     c: $light $darker $darker;
