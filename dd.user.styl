@@ -289,6 +289,11 @@
                 ../ .focus { c: $light 0 $darker }
                 ../ .active { c: $white 0 $accent }
 
+                // Highlight currently open list.
+                ../ > div > ._list-dir.open:not(._icon-c) + ._list-sub {
+                    box-shadow: inset 8px 0 $darker, inset 0 0 0 1px $darker;
+                }
+
                 ._list-arrow {
                     fill: $light;
                     ../.open ._list-arrow { opacity: 1 }
