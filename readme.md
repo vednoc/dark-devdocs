@@ -1,14 +1,18 @@
-# dark-devdocs [![Install directly with Stylus][badge]][style]
-Customizable [Stylus][stylus] theme for DevDocs.
+[![Install directly with Stylus][badge]][style]
+
+Dark-DevDocs is opinionated, dark and light, very customizable [Stylus][stylus]
+userstyle for DevDocs.
+
+[stylus]: https://github.com/openstyles/stylus
 
 ## Installation
-- Install [Stylus][stylus] for [Firefox][amo], [Chrome][cws] or [Opera][aoe].
-- Install the userstyle by clicking on the badge or [this link][style]:
+1. Install [Stylus][stylus] for [Firefox][amo], [Chrome][cws] or [Opera][aoe].
+2. Install the userstyle by clicking on the badge or [this link][style]:
     - Installs directly from this repository.
     - Only available using Stylus (see the [docs][usercss]). :tada:
-- DevDocs preferences:
+3. DevDocs preferences:
     - Theme works best with the default preferences.
-- Customization:
+4. Customization:
     - Open Stylus extension popup, click on the cogwheel icon and that will
       open up a configuration menu from which you can set your own preferences.
 
