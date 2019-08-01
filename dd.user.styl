@@ -406,6 +406,10 @@
                 radius: $r;
                 c: $blue $blue $darker;
             }
+            h4[id][class] {
+              radius: $r;
+              c: $blue $darker $t;
+            }
             .type, .method {
                 radius: $r;
                 c: $light $darker $dark;
@@ -421,10 +425,11 @@
                 c: $light 0 $darker;
                 &:not(._shortcut-code) { padding: 2px 4px }
             }
+            // Deprecation notice.
+            .stab { c: $light 0 $darker }
         }
 
-
-        blockquote, .important-traits, .tip {
+        blockquote, .important-traits, .tip, div.information {
             radius: $r;
             c: $light $orange $darker;
         }
