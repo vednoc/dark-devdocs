@@ -146,7 +146,7 @@
 
         pre {
             radius: $r;
-            c: $light $darker $dark;
+            c: $light $darker $darken;
             box-shadow: 0 2px 4px 0 $shadow;
 
             // * Feature -> Custom Mono font.
@@ -180,7 +180,7 @@
 
         // * Sidebar -> Overflowing list item.
         ._list-item.clone {
-            c: $light 0 $darker;
+            c: $light 0 $darken;
             box-shadow: none;
         }
 
@@ -188,7 +188,7 @@
         ._intro {
             &-message {
                 radius: $r;
-                c: $light $darker $dark;
+                c: $light $darker $darken;
                 box-shadow: 0 2px 4px 0 $shadow;
                 a[href] { c: $accent }
             }
@@ -219,7 +219,7 @@
         transition: 0.15s ease;
         c: $light $darker $dark 0 0 0;
 
-        &:hover { c: 0 0 $darker 0 0 0 }
+        &:hover { c: 0 0 $darken 0 0 0 }
 
         &-link {
             c: $light;
@@ -237,8 +237,8 @@
 
             &-input {
                 radius: $r;
-                c: $light $darker $dark;
-                box-shadow: 0 3px 2px inset $shadow;
+                c: $light $darker $darken;
+                box-shadow: inset 0 2px 4px $shadow;
                 &:focus {
                     c: 0 $accent;
                     box-shadow: 0 0 1px $accent;
