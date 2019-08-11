@@ -18,6 +18,7 @@
 @var text fade_img "Media: Set default opacity" 1
 
 @var color dark    "Dark color.   " #222222
+@var color darken  "Darken color. " #262626
 @var color darker  "Darker color. " #2f2f2f
 @var color light   "Light color.  " #d1d1d1
 @var color lighter "Lighter color." #c9c9c9
@@ -40,6 +41,7 @@
 
     :root {
         --dark    : dark;
+        --darken  : darken;
         --darker  : darker;
         --light   : light;
         --lighter : lighter;
@@ -69,6 +71,7 @@
 
     // * Use stylus-lang variables with CSS variables.
     $dark    = var(--dark);
+    $darken  = var(--darken);
     $darker  = var(--darker);
     $light   = var(--light);
     $lighter = var(--lighter);
