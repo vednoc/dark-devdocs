@@ -114,7 +114,7 @@
             c: 0 $darker $dark;
             thead {
                 tr th {
-                    c: $light $darker $darker;
+                    c: $light $darker $darken;
                     ../ tr:first-child > th:first-child {
                         radius: calc(var(--radius) - 2px) 0 0 0;
                     }
@@ -125,7 +125,7 @@
             }
             tbody {
                 tr th {
-                    c: $light $darker $darker;
+                    c: $light $darker $darken;
                     ../ tr:first-child > th:first-child {
                         radius: calc(var(--radius) - 2px) 0 0 0;
                     }
@@ -133,7 +133,13 @@
                         radius: 0 calc(var(--radius) - 2px) 0 0;
                     }
                 }
-                tr td { c: $lighter $darker $t }
+                tr td {
+                    c: $lighter $darker $t;
+
+                    // css: tables
+                    &.bc-supports-no { c: $red }
+                    &.bc-supports-yes { c: $green }
+                }
                 code { c: $light 0 $darker }
                 a { c: $accent }
             }
