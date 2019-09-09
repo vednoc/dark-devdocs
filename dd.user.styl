@@ -373,6 +373,10 @@
                         box-shadow: inner;
                     }
                 }
+                &.srclink {
+                    margin-left: auto;
+                    font-size: 1rem;
+                }
             }
             // External links.
             &[href^='http:'], &[href^='https:'] {
@@ -439,10 +443,16 @@
 
         // Headings -> Pseudo-elements.
         for i in 1..6 {
-            h{i}::before {
-                opacity: 0.8;
-                c: cm;
-                font-family: var(--mo-font);
+            h{i} {
+                display: flex;
+                align-items: center;
+                &::before {
+                    margin-right: 0.25em;
+                    font-size: 0.75em;
+                    font-family: var(--mo-font);
+                    opacity: 0.8;
+                    c: cm;
+                }
             }
         }
         h1::before {
