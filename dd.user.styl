@@ -345,18 +345,20 @@
     }
 
 
-    // * Main -> Content.
-    ._container[role] {
-        // * Feature -> Max width for content.
-        > main._content > div {
-            margin: 0 auto;
-            max-width: var(--width);
-        }
-
-        // 404 error.
+    // Main -> Static content.
+    main[role] > ._static {
+        /// 404 error.
         ._error {
+            &-title { c: fg }
             &-text { c: cm }
         }
+    }
+
+    // Main -> Docs content.
+    main[role] > ._page {
+        // Feat -> Max width for content.
+        margin: 0 auto;
+        max-width: var(--width);
         /// Revision blocks.
         .t-mark,
         .t-mark-rev {
