@@ -10,8 +10,8 @@
 @preprocessor stylus
 
 @var text b_radius "Custom border radius" 4px
-@var text ui_font "Custom UI font" "'custom_font', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif"
-@var text mono_font "Custom Mono font" "'custom_font', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, Courier, monospace"
+@var text ui_font "Custom UI font" "'font_name'"
+@var text mono_font "Custom Mono font" "'font_name'"
 @var text mono_size "Custom Mono font size" 1em
 @var text max_width "Max width for content" 100%
 @var checkbox invert_ic "Icons: Invert language logos" 1
@@ -58,12 +58,14 @@
         --white   : white;
         --t       : transparent;
         --bshadow   : 0 2px 4px var(--shadow);
+        --width   : max_width;
+        --radius  : b_radius;
 
-        --width     : max_width;
-        --radius    : b_radius;
-        --ui-font   : ui_font;
-        --mono-font : mono_font;
-        --mono-size : mono_size;
+        --ui-font : ui_font, -apple-system, BlinkMacSystemFont, 'San Francisco',
+            'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+        --mo-font : mono_font, 'SFMono-Regular', 'Consolas',
+            'Liberation Mono', Menlo, Courier, monospace;
+        --mo-size : mono_size;
 
         --media-opacity: fade_img;
 
@@ -169,13 +171,13 @@
             box-shadow: bsh;
 
             // * Feature -> Custom Mono font.
-            &, ../ code, samp { font-family: var(--mono-font) }
+            &, ../ code, samp { font-family: var(--mo-font) }
 
             // * Feature -> Custom font size.
-            &, ../ code, samp { font-size: var(--mono-size) }
+            &, ../ code, samp { font-size: var(--mo-size) }
 
             &[data-language] {
-                font-size: var(--mono-size);
+                font-size: var(--mo-size);
                 .token, .comment, .punctuation { c: cm }
                 .function { c: red }
                 .number { c: violet }
@@ -438,9 +440,9 @@
         // Headings -> Pseudo-elements.
         for i in 1..6 {
             h{i}::before {
-                font-family: var(--mono-font);
                 opacity: 0.8;
                 c: cm;
+                font-family: var(--mo-font);
             }
         }
         h1::before {
