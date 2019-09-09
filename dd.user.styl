@@ -70,24 +70,24 @@
     }
 
     // * Use stylus-lang variables with CSS variables.
-    $dark    = var(--dark);
-    $darken  = var(--darken);
-    $darker  = var(--darker);
-    $light   = var(--light);
-    $lighter = var(--lighter);
-    $accent  = var(--accent);
-    $shadow  = var(--shadow);
-    $yellow  = var(--yellow);
-    $orange  = var(--orange);
-    $red     = var(--red);
-    $magenta = var(--magenta);
-    $violet  = var(--violet);
-    $blue    = var(--blue);
-    $cyan    = var(--cyan);
-    $green   = var(--green);
-    $white   = var(--white);
-    $t       = var(--t);
-    $r       = var(--radius);
+    bg      = var(--dark);
+    hl      = var(--darken);
+    bd      = var(--darker);
+    fg      = var(--light);
+    cm      = var(--lighter);
+    ac      = var(--accent);
+    sh      = var(--shadow);
+    yellow  = var(--yellow);
+    orange  = var(--orange);
+    red     = var(--red);
+    magenta = var(--magenta);
+    violet  = var(--violet);
+    blue    = var(--blue);
+    cyan    = var(--cyan);
+    green   = var(--green);
+    white   = var(--white);
+    t       = var(--t);
+    r       = var(--radius);
 
     // * Mixins.
     radius() { border-radius: arguments }
@@ -100,21 +100,21 @@
 
     // * Reset.
     body {
-        c: $lighter 0 $dark;
+        c: cm 0 bg;
 
         * { scrollbar-width: thin }
-        ::selection { c: $white 0 $accent }
-        ::-moz-selection { c: $white 0 $accent }
+        ::selection { c: white 0 ac }
+        ::-moz-selection { c: white 0 ac }
 
         // * Feature -> Custom UI font.
         font-family: var(--ui-font);
 
         table {
-            radius: $r !important;
-            c: 0 $darker $dark;
+            radius: r !important;
+            c: 0 bd bg;
             thead {
                 tr th {
-                    c: $light $darker $darken;
+                    c: fg bd hl;
                     ../ tr:first-child > th:first-child {
                         radius: calc(var(--radius) - 2px) 0 0 0;
                     }
@@ -125,7 +125,7 @@
             }
             tbody {
                 tr th {
-                    c: $light $darker $darken;
+                    c: fg bd hl;
                     ../ tr:first-child > th:first-child {
                         radius: calc(var(--radius) - 2px) 0 0 0;
                     }
@@ -134,26 +134,26 @@
                     }
                 }
                 tr td {
-                    c: $lighter $darker $t;
+                    c: cm bd t;
 
                     // css: tables
-                    &.bc-supports-no { c: $red }
-                    &.bc-supports-yes { c: $green }
+                    &.bc-supports-no { c: red }
+                    &.bc-supports-yes { c: green }
                 }
-                code { c: $light 0 $darker }
-                a { c: $accent }
+                code { c: fg 0 bd }
+                a { c: ac }
             }
         }
 
-        small { c: $lighter }
+        small { c: cm }
         code {
-            &._label { c: $light 0 $darker }
+            &._label { c: fg 0 bd }
         }
 
         pre {
-            radius: $r;
-            c: $light $darker $darken;
-            box-shadow: 0 2px 4px 0 $shadow;
+            radius: r;
+            c: fg bd hl;
+            box-shadow: 0 2px 4px 0 sh;
 
             // * Feature -> Custom Mono font.
             &, ../ code, samp { font-family: var(--mono-font) }
@@ -163,14 +163,14 @@
 
             &[data-language] {
                 font-size: var(--mono-size);
-                .token, .comment, .punctuation { c: $lighter }
-                .function { c: $red }
-                .number { c: $violet }
-                .operator, .entity, .url { c: $yellow }
-                .atrule, .attr-value, .keyword { c: $blue }
-                .property, .tag, .boolean, .constant, .symbol, .deleted { c: $orange }
-                .selector, .attr-name, .string, .char, .builtin, .inserted { c: $green }
-                .symbol.atom { c: $violet }
+                .token, .comment, .punctuation { c: cm }
+                .function { c: red }
+                .number { c: violet }
+                .operator, .entity, .url { c: yellow }
+                .atrule, .attr-value, .keyword { c: blue }
+                .property, .tag, .boolean, .constant, .symbol, .deleted { c: orange }
+                .selector, .attr-name, .string, .char, .builtin, .inserted { c: green }
+                .symbol.atom { c: violet }
             }
 
             // Clipboard button.
@@ -178,37 +178,37 @@
                 opacity: 0;
                 display: block;
                 transition: 0.15s ease;
-                &::before { c: $light }
-                > svg { fill: $light }
+                &::before { c: fg }
+                > svg { fill: fg }
                 ../:hover ._pre-clip { opacity: 0.5 }
             }
         }
 
         // * Sidebar -> Overflowing list item.
         ._list-item.clone {
-            c: $light 0 $darken;
+            c: fg 0 hl;
             box-shadow: none;
         }
 
         // Main -> Landing page.
         ._intro {
             &-message {
-                radius: $r;
-                c: $light $darker $darken;
-                box-shadow: 0 2px 4px 0 $shadow;
-                a[href] { c: $accent }
+                radius: r;
+                c: fg bd hl;
+                box-shadow: 0 2px 4px 0 sh;
+                a[href] { c: ac }
             }
             iframe { filter: invert(1) hue-rotate(180deg) }
         }
 
         // Settings -> Header.
-        ._settings ._header { c: $light $darker $dark }
+        ._settings ._header { c: fg bd bg }
 
         // Button groups.
         ._docs-links {
-            radius: $r;
-            c: $light $darker $dark;
-            ._show ~ ._show { c: 0 $darker 0 }
+            radius: r;
+            c: fg bd bg;
+            ._show ~ ._show { c: 0 bd 0 }
         }
 
         // Feature -> Invert icon colors.
@@ -223,88 +223,88 @@
     // * Global -> Buttons.
     ._btn {
         transition: 0.15s ease;
-        c: $light $darker $dark 0 0 0;
+        c: fg bd bg 0 0 0;
 
-        &:hover { c: 0 0 $darken 0 0 0 }
+        &:hover { c: 0 0 hl 0 0 0 }
 
         &-link {
-            c: $light;
-            &._reset-btn { c: $red }
+            c: fg;
+            &._reset-btn { c: red }
         }
     }
 
 
     // * Sidebar -> Search.
     ._header[role='banner'] {
-        c: 0 $darker $dark;
+        c: 0 bd bg;
 
         ._search {
-            &-tag { c: $light 0 $darker }
+            &-tag { c: fg 0 bd }
 
             &-input {
-                radius: $r;
-                c: $light $darker $darken;
-                box-shadow: inset 0 2px 4px $shadow;
+                radius: r;
+                c: fg bd hl;
+                box-shadow: inset 0 2px 4px sh;
                 &:focus {
-                    c: 0 $accent;
-                    box-shadow: 0 0 1px $accent;
+                    c: 0 ac;
+                    box-shadow: 0 0 1px ac;
                 }
             }
 
             &-clear {
                 transition: 0.15s ease;
-                svg { fill: $lighter }
+                svg { fill: cm }
             }
         }
 
         // Menu.
         ._menu {
-            radius: $r;
-            c: 0 $darker $dark;
-            box-shadow: 0 2px 4px $shadow;
+            radius: r;
+            c: 0 bd bg;
+            box-shadow: 0 2px 4px sh;
             h1 {
-                c: $light $darker $t;
-                a { c: $light }
+                c: fg bd t;
+                a { c: fg }
             }
             &-link {
-                c: $lighter;
+                c: cm;
                 transition: 0.15s ease;
-                &:hover { c: $light 0 $darker }
+                &:hover { c: fg 0 bd }
             }
         }
     }
 
     // * Sidebar -> Core.
     ._sidebar[tabindex='-1'] {
-        c: $lighter $green $dark;
+        c: cm green bg;
 
-        a { c: $accent }
+        a { c: ac }
 
         ._list {
-            box-shadow: inset -1px 0 $darker;
+            box-shadow: inset -1px 0 bd;
 
             &-title {
-                c: $lighter;
-                svg { fill: $lighter }
-                &.open-title { c: $light }
+                c: cm;
+                svg { fill: cm }
+                &.open-title { c: fg }
             }
 
             &-item {
-                c: $light 0 $t;
-                box-shadow: inset -1px 0 $darker;
-                &:hover { c : 0 0 $darker }
+                c: fg 0 t;
+                box-shadow: inset -1px 0 bd;
+                &:hover { c : 0 0 bd }
 
                 // List states.
-                ../ .focus { c: $light 0 $darker }
-                ../ .active { c: $white 0 $accent }
+                ../ .focus { c: fg 0 bd }
+                ../ .active { c: white 0 ac }
 
                 // Highlight currently open list.
                 ../ > div > ._list-dir.open:not(._icon-c) + ._list-sub {
-                    box-shadow: inset 8px 0 $darker, inset 0 0 0 1px $darker;
+                    box-shadow: inset 8px 0 bd, inset 0 0 0 1px bd;
                 }
 
                 ._list-arrow {
-                    fill: $light;
+                    fill: fg;
                     ../.open ._list-arrow { opacity: 1 }
                 }
 
@@ -313,19 +313,19 @@
 
                 // Disabled list items.
                 &._list-disabled {
-                    c: $lighter;
-                    ^[1]-enable { c: $accent }
+                    c: cm;
+                    ^[1]-enable { c: ac }
                 }
             }
 
             &-picker-head {
-                background: linear-gradient(0deg, $t, $dark 75%) !important;
-                span { c: $light }
+                background: linear-gradient(0deg, t, bg 75%) !important;
+                span { c: fg }
             }
 
-            &-note { c: $lighter }
+            &-note { c: cm }
 
-            &-pagelink { c: $accent }
+            &-pagelink { c: ac }
         }
     }
 
@@ -340,13 +340,13 @@
 
         // 404 error.
         ._error {
-            &-text { c: $lighter }
+            &-text { c: cm }
         }
 
         // Links.
         a {
             &[href] {
-                c: $accent 0 0 0;
+                c: ac 0 0 0;
                 code {
                     &.inline { color: inherit !important }
                     // Reset code within links.
@@ -354,15 +354,15 @@
                         radius: 3px;
                         padding: 1.5px 3px;
                         font-size: 1em;
-                        c: $accent 0 $darken;
-                        box-shadow: inset 0 0 0 1px $darker;
+                        c: ac 0 hl;
+                        box-shadow: inset 0 0 0 1px bd;
                     }
                 }
             }
             // External links.
             &[href^='http:'], &[href^='https:'] {
                 &::after {
-                    c: $light;
+                    c: fg;
                     content: '\1F5D7';
                     width: unset;
                     height: unset;
@@ -375,15 +375,15 @@
         }
 
         p {
-            c: $light;
+            c: fg;
 
             // Page links.
             &._links {
-                ._links-link { c: $accent 0 $dark }
+                ._links-link { c: ac 0 bg }
             }
             > code {
-                c: $light 0 $darken;
-                box-shadow: inset 0 0 0 1px $darker;
+                c: fg 0 hl;
+                box-shadow: inset 0 0 0 1px bd;
 
                 // fish/prevd
                 // TODO: Possible removal.
@@ -392,34 +392,34 @@
         }
 
         li {
-            c: $light;
+            c: fg;
             > code {
-                c: $light 0 $darken;
-                box-shadow: inset 0 0 0 1px $darker;
+                c: fg 0 hl;
+                box-shadow: inset 0 0 0 1px bd;
             }
         }
 
         h1 {
             font-size: 1.8em;
-            code { c: $light }
+            code { c: fg }
             &::before { margin-right: 3px }
-            &::after { c: 0 0 $darker }
+            &::after { c: 0 0 bd }
         }
         h2 {
             font-size: 1.4em;
-            c: $light $t $t;
-            box-shadow: inset 0 -1px $darker;
+            c: fg t t;
+            box-shadow: inset 0 -1px bd;
 
             // clojure/core
-            span { c: $lighter }
+            span { c: cm }
         }
         h3 {
             font-size: 1.1em;
-            c: $light $t $t;
-            box-shadow: inset 0 -1px $darker;
+            c: fg t t;
+            box-shadow: inset 0 -1px bd;
 
             // Types.
-            > span { c: $yellow }
+            > span { c: yellow }
         }
 
         // Headings -> Pseudo-elements.
@@ -427,7 +427,7 @@
             h{i}::before {
                 font-family: var(--mono-font);
                 opacity: 0.8;
-                c: $lighter;
+                c: cm;
             }
         }
         h1::before {
@@ -435,15 +435,15 @@
             content: '# ';
         }
         h2::before {
-            c: $green;
+            c: green;
             content: '## ';
         }
         h3::before {
-            c: $blue;
+            c: blue;
             content: '### ';
         }
         h4::before {
-            c: $cyan;
+            c: cyan;
             content: '#### ';
         }
         h5::before {
@@ -456,35 +456,35 @@
         }
 
         blockquote, .important-traits, .tip, div.information {
-            radius: $r;
-            c: $light $orange $darker;
+            radius: r;
+            c: fg orange bd;
         }
         .note {
-            radius: $r;
-            c: $light $green $darker;
+            radius: r;
+            c: fg green bd;
         }
 
         // Callouts.
         .doc-box {
-            radius: $r;
-            &.doc-info { c: $light $blue $dark }
-            &.doc-notice { c: $light $yellow $dark }
+            radius: r;
+            &.doc-info { c: fg blue bg }
+            &.doc-notice { c: fg yellow bg }
         }
 
         ._toc {
-            radius: $r;
-            c: $light $darker $dark;
+            radius: r;
+            c: fg bd bg;
         }
 
         ._shortcut {
-            &-code { c: $light 0 $darker }
+            &-code { c: fg 0 bd }
         }
 
         ._note {
-            radius: $r;
-            &:not([id]) { c: $light $orange $dark }
-            ._label { c: $light 0 $dark }
-            &-green { c: $green $green $darker }
+            radius: r;
+            &:not([id]) { c: fg orange bg }
+            ._label { c: fg 0 bg }
+            &-green { c: green green bd }
         }
 
         // * Feature -> Set default media opacity.
@@ -502,19 +502,19 @@
 
         // Notice.
         ._notice {
-            c: $lighter 0 $dark;
-            box-shadow: 0 -1px 0 0 $darker;
-            a[href] { c: $accent }
-            code { c: $light }
+            c: cm 0 bg;
+            box-shadow: 0 -1px 0 0 bd;
+            a[href] { c: ac }
+            code { c: fg }
         }
 
         // Breadcrumbs.
         ._path {
-            c: 0 0 $dark;
-            box-shadow: inset 0 1px $darker;
-            span:last-child { c: $light }
-            &-arrow { fill: $lighter }
-            &-item { c: $lighter }
+            c: 0 0 bg;
+            box-shadow: inset 0 1px bd;
+            span:last-child { c: fg }
+            &-arrow { fill: cm }
+            &-item { c: cm }
         }
 
         // Resize the sidebar.
@@ -523,23 +523,23 @@
             bottom: 0;
             width: 8px;
             margin-left: -8px;
-            c: 0 0 $darker;
+            c: 0 0 bd;
             opacity: 0;
         }
 
         // Credits.
         ._attribution {
             &-p {
-                radius: $r;
-                c: $light 0 $darker;
+                radius: r;
+                c: fg 0 bd;
             }
-            &-link { c: $accent }
+            &-link { c: ac }
         }
 
         // News page.
         ._news {
-            &-row { c: $lighter }
-            &-title { c: $light }
+            &-row { c: cm }
+            &-title { c: fg }
         }
     }
 }
