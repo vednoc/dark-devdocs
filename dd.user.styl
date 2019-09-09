@@ -352,6 +352,20 @@
             &-title { c: fg }
             &-text { c: cm }
         }
+        /// Resets.
+        a { c: ac }
+        code {
+            c: fg 0 hl;
+            box-shadow: inner;
+        }
+        h1::after { c: 0 0 bd }
+        h2:not([class ^= '_settings-']) { c: fg bd hl }
+        ._note { c: fg green hl }
+        ._toc {
+            rad: r;
+            c: fg bd hl;
+        }
+        tr:hover > td { c: 0 0 hl }
     }
 
     // Main -> Docs content.
