@@ -57,6 +57,7 @@
         --green   : green;
         --white   : white;
         --t       : transparent;
+        --bshadow   : 0 2px 4px var(--shadow);
 
         --width     : max_width;
         --radius    : b_radius;
@@ -77,6 +78,7 @@
     cm      = var(--lighter);
     ac      = var(--accent);
     sh      = var(--shadow);
+    bsh     = var(--bshadow);
     yellow  = var(--yellow);
     orange  = var(--orange);
     red     = var(--red);
@@ -88,15 +90,26 @@
     white   = var(--white);
     t       = var(--t);
     r       = var(--radius);
+    outer   = 0 0 0 1px bd;
+    inner   = inset outer;
 
-    // * Mixins.
-    radius() { border-radius: arguments }
+    // Color mixin.
+    // All colors: `c: fg bd bg;`
+    // Only border-color: `c: 0 bd;`
     c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
-        if x is a 'call' {            color: xi is 0 ? x : x !important }
-        if y is a 'call' {     border-color: yi is 0 ? y : y !important }
-        if z is a 'call' { background-color: zi is 0 ? z : z !important }
+        i = !important;
+        if x is a 'call' or x is a 'rgba' {            color: xi is 0? x : x i }
+        if y is a 'call' or y is a 'rgba' {     border-color: yi is 0? y : y i }
+        if z is a 'call' or z is a 'rgba' { background-color: zi is 0? z : z i }
     }
-
+    // SVG mixin.
+    v(x, y = 0, xi = 1, yi = 1) {
+        i = !important;
+        if x is a 'call' or x is a 'rgba' {   fill: xi is 0? x : x i }
+        if y is a 'call' or y is a 'rgba' { stroke: yi is 0? y : y i }
+    }
+    // Rounded corners.
+    rad() { border-radius: arguments }
 
     // * Reset.
     body {
@@ -110,16 +123,16 @@
         font-family: var(--ui-font);
 
         table {
-            radius: r !important;
+            rad: r !important;
             c: 0 bd bg;
             thead {
                 tr th {
                     c: fg bd hl;
                     ../ tr:first-child > th:first-child {
-                        radius: calc(var(--radius) - 2px) 0 0 0;
+                        rad: calc(var(--radius) - 2px) 0 0 0;
                     }
                     ../ tr:first-child > th:last-child {
-                        radius: 0 calc(var(--radius) - 2px) 0 0;
+                        rad: 0 calc(var(--radius) - 2px) 0 0;
                     }
                 }
             }
@@ -127,10 +140,10 @@
                 tr th {
                     c: fg bd hl;
                     ../ tr:first-child > th:first-child {
-                        radius: calc(var(--radius) - 2px) 0 0 0;
+                        rad: calc(var(--radius) - 2px) 0 0 0;
                     }
                     ../ tr:first-child > th:last-child {
-                        radius: 0 calc(var(--radius) - 2px) 0 0;
+                        rad: 0 calc(var(--radius) - 2px) 0 0;
                     }
                 }
                 tr td {
@@ -151,9 +164,9 @@
         }
 
         pre {
-            radius: r;
+            rad: r;
             c: fg bd hl;
-            box-shadow: 0 2px 4px 0 sh;
+            box-shadow: bsh;
 
             // * Feature -> Custom Mono font.
             &, ../ code, samp { font-family: var(--mono-font) }
@@ -193,9 +206,9 @@
         // Main -> Landing page.
         ._intro {
             &-message {
-                radius: r;
+                rad: r;
                 c: fg bd hl;
-                box-shadow: 0 2px 4px 0 sh;
+                box-shadow: bsh;
                 a[href] { c: ac }
             }
             iframe { filter: invert(1) hue-rotate(180deg) }
@@ -206,7 +219,7 @@
 
         // Button groups.
         ._docs-links {
-            radius: r;
+            rad: r;
             c: fg bd bg;
             ._show ~ ._show { c: 0 bd 0 }
         }
@@ -242,9 +255,9 @@
             &-tag { c: fg 0 bd }
 
             &-input {
-                radius: r;
+                rad: r;
                 c: fg bd hl;
-                box-shadow: inset 0 2px 4px sh;
+                box-shadow: inset bsh;
                 &:focus {
                     c: 0 ac;
                     box-shadow: 0 0 1px ac;
@@ -259,9 +272,9 @@
 
         // Menu.
         ._menu {
-            radius: r;
+            rad: r;
             c: 0 bd bg;
-            box-shadow: 0 2px 4px sh;
+            box-shadow: bsh;
             h1 {
                 c: fg bd t;
                 a { c: fg }
@@ -300,7 +313,7 @@
 
                 // Highlight currently open list.
                 ../ > div > ._list-dir.open:not(._icon-c) + ._list-sub {
-                    box-shadow: inset 8px 0 bd, inset 0 0 0 1px bd;
+                    box-shadow: inset 8px 0 bd, inner;
                 }
 
                 ._list-arrow {
@@ -351,11 +364,11 @@
                     &.inline { color: inherit !important }
                     // Reset code within links.
                     ../ > code {
-                        radius: 3px;
+                        rad: 3px;
                         padding: 1.5px 3px;
                         font-size: 1em;
                         c: ac 0 hl;
-                        box-shadow: inset 0 0 0 1px bd;
+                        box-shadow: inner;
                     }
                 }
             }
@@ -383,7 +396,7 @@
             }
             > code {
                 c: fg 0 hl;
-                box-shadow: inset 0 0 0 1px bd;
+                box-shadow: inner;
 
                 // fish/prevd
                 // TODO: Possible removal.
@@ -395,7 +408,7 @@
             c: fg;
             > code {
                 c: fg 0 hl;
-                box-shadow: inset 0 0 0 1px bd;
+                box-shadow: inner;
             }
         }
 
@@ -456,23 +469,23 @@
         }
 
         blockquote, .important-traits, .tip, div.information {
-            radius: r;
+            rad: r;
             c: fg orange bd;
         }
         .note {
-            radius: r;
+            rad: r;
             c: fg green bd;
         }
 
         // Callouts.
         .doc-box {
-            radius: r;
+            rad: r;
             &.doc-info { c: fg blue bg }
             &.doc-notice { c: fg yellow bg }
         }
 
         ._toc {
-            radius: r;
+            rad: r;
             c: fg bd bg;
         }
 
@@ -481,7 +494,7 @@
         }
 
         ._note {
-            radius: r;
+            rad: r;
             &:not([id]) { c: fg orange bg }
             ._label { c: fg 0 bg }
             &-green { c: green green bd }
@@ -503,7 +516,7 @@
         // Notice.
         ._notice {
             c: cm 0 bg;
-            box-shadow: 0 -1px 0 0 bd;
+            box-shadow: 0 -1px bd;
             a[href] { c: ac }
             code { c: fg }
         }
@@ -530,7 +543,7 @@
         // Credits.
         ._attribution {
             &-p {
-                radius: r;
+                rad: r;
                 c: fg 0 bd;
             }
             &-link { c: ac }
