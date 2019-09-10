@@ -149,14 +149,24 @@
                     }
                 }
                 tr td {
-                    c: cm bd t;
-
-                    // css: tables
+                    c: cm bd;
+                    /// css/colors
+                    &:not([style *= 'background']) { c: 0 0 t }
+                    /// Reset code blocks.
+                    pre[data-language] { c: 0 0 t }
+                    /// css/tables
                     &.bc-supports-no { c: red }
                     &.bc-supports-yes { c: green }
                 }
                 code { c: fg 0 bd }
                 a { c: ac }
+            }
+            /// css/color
+            dl {
+                c: fg bd;
+                dt, dd { c: 0 0 t }
+                .bc-supports-no { c: red }
+                .bc-supports-yes { c: green }
             }
         }
 
@@ -525,6 +535,8 @@
             c: fg green bd;
         }
 
+        /// css/column-gap -> Flex layout experimental.
+        .indicator-warning { c: fg orange hl }
         // Callouts.
         .doc-box {
             rad: r;
