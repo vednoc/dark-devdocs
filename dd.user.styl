@@ -130,6 +130,7 @@
             thead {
                 tr th {
                     c: fg bd hl;
+                    code:not(#z) { c: 0 0 bg }
                     ../ tr:first-child > th:first-child {
                         rad: calc(var(--radius) - 2px) 0 0 0;
                     }
@@ -141,6 +142,7 @@
             tbody {
                 tr th {
                     c: fg bd hl;
+                    code:not(#z) { c: 0 0 bg }
                     ../ tr:first-child > th:first-child {
                         rad: calc(var(--radius) - 2px) 0 0 0;
                     }
@@ -398,7 +400,7 @@
         }
         /// Code blocks.
         code {
-            padding: 1.5px 3px;
+            padding: 2px 4px;
             rad: 3px;
             c: fg 0 hl;
             box-shadow: inner;
@@ -464,6 +466,7 @@
         h1 {
             font-size: 1.8em;
             code { c: fg }
+            > code { font-size: 0.75em }
             &::before { margin-right: 3px }
             &::after { c: 0 0 bd }
         }
@@ -472,6 +475,7 @@
             c: fg t t;
             box-shadow: inset 0 -1px bd;
 
+            > code { font-size: 0.75em }
             // clojure/core
             span { c: cm }
         }
@@ -479,7 +483,7 @@
             font-size: 1.1em;
             c: fg t t;
             box-shadow: inset 0 -1px bd;
-
+            > code { font-size: 0.75em }
             // Types.
             > span { c: yellow }
         }
@@ -504,6 +508,7 @@
             sup { margin-top: -0.5em }
             sub { margin-bottom: -0.5em }
             a, .type { margin-left: auto }
+            code { margin: 0 0.25em }
         }
         h1::before {
             c: 0;
