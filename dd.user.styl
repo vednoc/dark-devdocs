@@ -317,15 +317,15 @@
             &-item {
                 c: fg 0 t;
                 box-shadow: inset -1px 0 bd;
-                &:hover { c : 0 0 bd }
+                &:hover { c : 0 0 hl }
 
                 // List states.
                 ../ .focus { c: fg 0 bd }
-                ../ .active { c: white 0 ac }
+                ../ .active { c: ac 0 bd }
 
                 // Highlight currently open list.
                 ../ > div > ._list-dir.open:not(._icon-c) + ._list-sub {
-                    box-shadow: inset 8px 0 bd, inner;
+                    box-shadow: inset 8px 0 hl, inner;
                 }
 
                 ._list-arrow {
