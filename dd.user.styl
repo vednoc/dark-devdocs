@@ -470,11 +470,13 @@
             > span { c: yellow }
         }
 
-        // Headings -> Pseudo-elements.
+        /// Headings -> Reset.
         for i in 1..6 {
             h{i} {
                 display: flex;
                 align-items: center;
+                margin-left: 0;
+                rad: 0;
                 &::before {
                     margin-right: 0.25em;
                     font-size: 0.75em;
@@ -483,6 +485,11 @@
                     c: cm;
                 }
             }
+        }
+        h1, h2, h3, h4, h5, h6 {
+            sup { margin-top: -0.5em }
+            sub { margin-bottom: -0.5em }
+            a, .type { margin-left: auto }
         }
         h1::before {
             c: 0;
