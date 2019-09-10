@@ -383,6 +383,10 @@
         // Feat -> Max width for content.
         margin: 0 auto;
         max-width: var(--width);
+        /// Lower content opacity.
+        img, video, iframe {
+            &:not(:hover) { opacity: 0.3 }
+        }
         /// Revision blocks.
         .t-mark,
         .t-mark-rev {
