@@ -489,32 +489,40 @@
                 box-shadow: inner;
             }
         }
-
+        /// Headings.
         h1 {
-            font-size: 1.8em;
-            code { c: fg }
+            font-size: 2.2em;
+            c: fg;
             > code { font-size: 0.75em }
             &::before { margin-right: 3px }
             &::after { c: 0 0 bd }
         }
         h2 {
-            font-size: 1.4em;
+            margin-bottom: 1rem;
+            padding: 0.5em 0;
+            font-size: 2.0em;
             c: fg t t;
             box-shadow: inset 0 -1px bd;
-
             > code { font-size: 0.75em }
             // clojure/core
             span { c: cm }
         }
         h3 {
-            font-size: 1.1em;
+            padding: 0.25em 0;
+            font-size: 1.8em;
             c: fg t t;
             box-shadow: inset 0 -1px bd;
             > code { font-size: 0.75em }
             // Types.
             > span { c: yellow }
         }
-
+        h4 {
+            font-size: 1.4em;
+            padding: 0.25em 0;
+            c: fg t t;
+            box-shadow: inset 0 -1px bd;
+            > code { font-size: 0.75em }
+        }
         /// Headings -> Reset.
         for i in 1..6 {
             h{i} {
@@ -543,23 +551,23 @@
         }
         h2::before {
             c: green;
-            content: '## ';
+            content: '# ';
         }
         h3::before {
             c: blue;
-            content: '### ';
+            content: '# ';
         }
         h4::before {
             c: cyan;
-            content: '#### ';
+            content: '# ';
         }
         h5::before {
             c: 0;
-            content: '##### ';
+            content: '# ';
         }
         h6::before {
             c: 0;
-            content: '###### ';
+            content: '# ';
         }
 
         blockquote, .important-traits, .tip, div.information {
