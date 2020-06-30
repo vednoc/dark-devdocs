@@ -15,7 +15,7 @@
 @var text mono_size "Custom Mono font size" 1em
 @var text max_width "Max width for content" 100%
 @var checkbox invert_ic "Icons: Invert language logos" 1
-@var text fade_img "Media: Set default opacity" 1
+@var text fade_img 'Media: Set default opacity' 0.8
 
 @var color dark    "Dark color.   " #292929
 @var color darken  "Darken color. " #333333
@@ -397,10 +397,6 @@
         // Feat -> Max width for content.
         margin: 0 auto;
         max-width: var(--width);
-        /// Lower content opacity.
-        img, video, iframe {
-            &:not(:hover) { opacity: 0.3 }
-        }
         /// Revision blocks.
         .t-mark,
         .t-mark-rev {
@@ -605,11 +601,12 @@
             &-green { c: green green bd }
         }
 
-        // * Feature -> Set default media opacity.
-        > [role='main'] {
+        /// Feat -> Set default media opacity.
+        if (fade_img != 1) {
             img, video, iframe {
-                transition: 0.15s ease;
-                &:not(:hover) { filter: opacity(var(--media-opacity)) }
+                transition: opacity 0.3s ease-in-out
+                opacity: var(--media-opacity)
+                &:hover { opacity: 1 }
             }
         }
     }
