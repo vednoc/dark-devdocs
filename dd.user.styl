@@ -95,6 +95,7 @@
     r       = var(--radius);
     outer   = 0 0 0 1px bd;
     inner   = inset outer;
+    i       = !important
 
     // Color mixin.
     // All colors: `c: fg bd bg;`
@@ -113,6 +114,8 @@
     }
     // Rounded corners.
     rad() { border-radius: arguments }
+    /// Box-shadow mixin.
+    b() { box-shadow: arguments }
 
     // * Reset.
     body {
